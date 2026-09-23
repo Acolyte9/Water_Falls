@@ -43,11 +43,11 @@ class NewGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenTemplate(
-      title: 'New Game',
+      title: 'Item Select',
       color: Colors.blue,
       buttons: [
-        buildNavButton(context, 'Main Menu', const MainScreen()),
         buildNavButton(context, 'Game Grid', const GameGrid()),
+        buildNavButton(context, 'Main Menu', const MainScreen()),
       ],
     );
   }
@@ -62,7 +62,7 @@ class GameGrid extends StatelessWidget {
       title: 'Game Grid',
       color: Colors.blue,
       buttons: [
-        buildNavButton(context, 'New Game', const NewGame()),
+        buildNavButton(context, 'Block Select', const NewGame()),
       ],
     );
   }
