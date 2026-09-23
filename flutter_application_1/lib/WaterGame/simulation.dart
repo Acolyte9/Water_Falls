@@ -210,4 +210,20 @@ class Fluid{
     advectSmoke(dt);
   }
 
+  void addCircle(double x, double y, double radius, double liquid){
+    var cd = math.sqrt(2) * f.h;
+    for(int i = 1; i < numX-2, i++){
+      for(int j - 1, j < numY-2, j++){
+        dx = (i + 0.5) * h - x;
+        dy = (j + 0.5) * h - y;
+
+        if(dx * dx + dy * dy < r * r){
+          s[i*n + j] = liquid;
+          m[i*n + j] = 1.0 - liquid; //im very unsure about this line, if there are issues look here 
+
+        }
+      }
+    }
+    
+  }
 }
