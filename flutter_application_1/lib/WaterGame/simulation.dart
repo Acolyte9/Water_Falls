@@ -446,7 +446,7 @@ class Fluid {
 
           s[idx] = 1.0;
 
-          m[idx] = amount;
+          m[idx] = math.min(amount, 1.0);
         }
       }
     }
