@@ -1,5 +1,11 @@
 import 'dart:math' as math;
 
+enum Field{
+  U_FIELD,
+  V_FIELD,
+  S_FIELD
+}
+
 class Fluid{
   //This fluid sim is translated from Javascript code by 10MinutePhysics with comments by Jack.
   double density;
@@ -226,4 +232,17 @@ class Fluid{
     }
     
   }
+  void addWater(double x, double y, double radius, double amount):
+    var cd = math.sqrt(2) * f.h;
+      for(int i = 1; i < numX-2, i++){
+        for(int j - 1, j < numY-2, j++){
+          dx = (i + 0.5) * h - x;
+          dy = (j + 0.5) * h - y;
+
+          if(dx * dx + dy * dy < r * r){
+            m[i*n + j] = amount; //im very unsure about this line, if there are issues look here 
+
+          }
+        }
+      }
 }
