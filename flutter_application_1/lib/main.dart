@@ -44,7 +44,7 @@ class NewGame extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTemplate(
       title: 'New Game',
-      color: Colors.green,
+      color: Colors.blue,
       buttons: [
         buildNavButton(context, 'Main Menu', const MainScreen()),
         buildNavButton(context, 'Game Grid', const GameGrid()),
@@ -60,7 +60,7 @@ class GameGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTemplate(
       title: 'Game Grid',
-      color: Colors.green,
+      color: Colors.blue,
       buttons: [
         buildNavButton(context, 'New Game', const NewGame()),
       ],
@@ -75,7 +75,7 @@ class HowToScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTemplate(
       title: 'How To Play',
-      color: Colors.orange,
+      color: Colors.blue,
       buttons: [
         buildNavButton(context, 'Main Menu', const MainScreen()),
       ],
@@ -90,7 +90,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTemplate(
       title: 'About the Project',
-      color: Colors.purple,
+      color: Colors.blue,
       buttons: [
         buildNavButton(context, 'Main Menu', const MainScreen()),
       ],
