@@ -451,4 +451,8 @@ class Fluid {
       }
     }
   }
+
+  bool isCellSolid(int x, int y){
+    return s[y * numY + x] == 0.0;
+  }
 }
