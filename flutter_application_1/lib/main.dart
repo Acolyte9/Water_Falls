@@ -28,6 +28,7 @@ class MainScreen extends StatelessWidget {
     return ScreenTemplate(
       title: 'Main Screen',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'New Game', const NewGame()),
         buildNavButton(context, 'How To Play', const HowToScreen()),
@@ -45,6 +46,7 @@ class NewGame extends StatelessWidget {
     return ScreenTemplate(
       title: 'Item Select',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'Game Grid', const GameGrid()),
         buildNavButton(context, 'Main Menu', const MainScreen()),
@@ -61,6 +63,7 @@ class GameGrid extends StatelessWidget {
     return ScreenTemplate(
       title: 'Game Grid',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'Block Select', const NewGame()),
       ],
@@ -76,6 +79,7 @@ class HowToScreen extends StatelessWidget {
     return ScreenTemplate(
       title: 'How To Play',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'Main Menu', const MainScreen()),
       ],
@@ -91,6 +95,7 @@ class AboutPage extends StatelessWidget {
     return ScreenTemplate(
       title: 'About the Project',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'Main Menu', const MainScreen()),
       ],
@@ -117,12 +122,15 @@ class ScreenTemplate extends StatelessWidget {
   final String title;
   final Color color;
   final List<Widget> buttons;
+  final MainAxisAlignment mainAxisAlignment;
+
 
   const ScreenTemplate({
     super.key,
     required this.title,
     required this.color,
     required this.buttons,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   });
 
   @override
@@ -135,7 +143,7 @@ class ScreenTemplate extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: mainAxisAlignment,
           children: [
             Text(
               title,
