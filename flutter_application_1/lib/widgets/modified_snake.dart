@@ -70,7 +70,7 @@ class SnakeBoardPainter extends CustomPainter {
 
 class SnakeState extends State<Snake> {
   SnakeState(int rows, int columns, this.cellSize) {
-    state = GameState(rows, columns, Fluid(1000, columns, rows, 1/(math.max(rows, columns))));
+    state = GameState(rows, columns);
   }
 
   double cellSize;
