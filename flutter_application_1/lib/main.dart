@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/demo_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Water Falls!',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, secondary: const Color.fromARGB(255, 68, 190, 255), tertiary: const Color.fromARGB(255, 71, 68, 255)),
         useMaterial3: true,
       ),
       home: const MainScreen()
@@ -57,7 +58,7 @@ class NewGame extends StatelessWidget {
 
 class GameGrid extends StatelessWidget {
   const GameGrid({super.key});
-
+  SensorHomePageState createState() => SensorHomePageState();
   @override
   Widget build(BuildContext context) {
     return ScreenTemplate(
