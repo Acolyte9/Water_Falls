@@ -24,16 +24,17 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     await tester.tap(find.byKey(Key('New Game')));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    expect (find.byType(NewGame), findsOne);
+    expect(find.byType(NewGame), findsOneWidget);
   });
 
   testWidgets('About Project loads NewGame screen', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
     await tester.tap(find.byKey(Key('About the Project')));
+    await tester.pumpAndSettle();
 
-    expect (find.byType(AboutPage), findsOne);
+    expect(find.byType(AboutPage), findsOneWidget);
   });
 }
