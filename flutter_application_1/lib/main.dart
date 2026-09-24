@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/demo_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Water Falls!',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, secondary: const Color.fromARGB(255, 68, 190, 255), tertiary: const Color.fromARGB(255, 71, 68, 255)),
         useMaterial3: true,
       ),
-      home: const MainScreen()
+      home: const MainScreen(),
     );
   }
 }
@@ -28,6 +29,7 @@ class MainScreen extends StatelessWidget {
     return ScreenTemplate(
       title: 'Main Screen',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'New Game', const NewGame()),
         buildNavButton(context, 'How To Play', const HowToScreen()),
@@ -45,6 +47,7 @@ class NewGame extends StatelessWidget {
     return ScreenTemplate(
       title: 'Item Select',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'Game Grid', const GameGrid()),
         buildNavButton(context, 'Main Menu', const MainScreen()),
@@ -55,16 +58,9 @@ class NewGame extends StatelessWidget {
 
 class GameGrid extends StatelessWidget {
   const GameGrid({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return ScreenTemplate(
-      title: 'Game Grid',
-      color: Colors.blue,
-      buttons: [
-        buildNavButton(context, 'Block Select', const NewGame()),
-      ],
-    );
+    return const SensorHomePage(title: "Game Grid");
   }
 }
 
@@ -76,6 +72,7 @@ class HowToScreen extends StatelessWidget {
     return ScreenTemplate(
       title: 'How To Play',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'Main Menu', const MainScreen()),
       ],
@@ -91,6 +88,7 @@ class AboutPage extends StatelessWidget {
     return ScreenTemplate(
       title: 'About the Project',
       color: Colors.blue,
+      mainAxisAlignment: MainAxisAlignment.center,
       buttons: [
         buildNavButton(context, 'Main Menu', const MainScreen()),
       ],
@@ -117,12 +115,15 @@ class ScreenTemplate extends StatelessWidget {
   final String title;
   final Color color;
   final List<Widget> buttons;
+  final MainAxisAlignment mainAxisAlignment;
+
 
   const ScreenTemplate({
     super.key,
     required this.title,
     required this.color,
     required this.buttons,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   });
 
   @override
@@ -135,7 +136,7 @@ class ScreenTemplate extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: mainAxisAlignment,
           children: [
             Text(
               title,
