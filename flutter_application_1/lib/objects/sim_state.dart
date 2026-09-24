@@ -2,17 +2,12 @@ import 'dart:math' as math;
 import 'simulation.dart';
 
 class GameState {
-  GameState(this.rows, this.columns) {
-    // snakeLength = math.min(rows, columns) - 5;
-    // this.rows ?? 0;
-    Fluid fluid = Fluid(1000, columns, rows, 1/(math.max(rows, columns)));
-    
-  }
+  GameState(this.rows, this.columns, this.fluid);
 
   int rows;
   int columns;
   // late int snakeLength;
-  late Fluid fluid;
+  Fluid fluid;
   // late int iterations;
 
   // List<math.Point<double>> body = <math.Point<double>>[const math.Point<double>(0, 0)];
