@@ -5,7 +5,7 @@ class GameState {
   GameState(this.rows, this.columns) {
     // snakeLength = math.min(rows, columns) - 5;
     // this.rows ?? 0;
-    Fluid fluid = Fluid(1000, columns, rows, 1/(math.max(rows, columns)));
+    fluid = Fluid(1000, columns, rows, 1 / math.max(rows, columns));
     
   }
 

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, secondary: const Color.fromARGB(255, 68, 190, 255), tertiary: const Color.fromARGB(255, 71, 68, 255)),
         useMaterial3: true,
       ),
-      home: const MainScreen()
+      home: const MainScreen(),
     );
   }
 }
@@ -58,17 +58,9 @@ class NewGame extends StatelessWidget {
 
 class GameGrid extends StatelessWidget {
   const GameGrid({super.key});
-  SensorHomePageState createState() => SensorHomePageState();
   @override
   Widget build(BuildContext context) {
-    return ScreenTemplate(
-      title: 'Game Grid',
-      color: Colors.blue,
-      mainAxisAlignment: MainAxisAlignment.center,
-      buttons: [
-        buildNavButton(context, 'Block Select', const NewGame()),
-      ],
-    );
+    return const SensorHomePage(title: "Game Grid");
   }
 }
 
