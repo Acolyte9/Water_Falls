@@ -47,10 +47,10 @@ class GameState {
       fluid.addWater(x, y, 1, 1);
     }
     else if (tap == Tap.solid) {
-      fluid.addCircle(x, y, 1, true)
+      fluid.addCircle(x, y, 1, true);
     }
     else if (tap == Tap.air) {
-      fluid.addCircle(x, y, 1, false)
+      fluid.addCircle(x, y, 1, false);
     }
   }
 }
