@@ -143,7 +143,7 @@ class SensorHomePageState extends State<SensorHomePage> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold)),
                 onPressed: () {
-                  snake.state.changeinteraction("water")
+                  snake.state.changeinteraction("water");
                 },
                 child: Text("Water"),
               ),
@@ -155,7 +155,7 @@ class SensorHomePageState extends State<SensorHomePage> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold)),
                 onPressed: () {
-                  snake.state.changeinteraction("solid")
+                  snake.state.changeinteraction("solid");
                 },
                 
                 child: Text("Dirt"),
@@ -168,7 +168,7 @@ class SensorHomePageState extends State<SensorHomePage> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold)),
                 onPressed: () {
-                  snake.state.changeinteraction("air")
+                  snake.state.changeinteraction("air");
                 },
                 child: Text("Air"),
               ),
