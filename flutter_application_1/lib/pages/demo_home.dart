@@ -85,6 +85,12 @@ class SensorHomePageState extends State<SensorHomePage> {
     final magnetometer =
         _magnetometerValues?.map((double v) => v.toStringAsFixed(1)).toList();
 
+    Snake snake = Snake(
+                    rows: _snakeRows,
+                    columns: _snakeColumns,
+                    cellSize: _snakeCellSize,
+                  );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title!),
@@ -100,18 +106,74 @@ class SensorHomePageState extends State<SensorHomePage> {
               child: SizedBox(
                 height: _snakeRows * _snakeCellSize,
                 width: _snakeColumns * _snakeCellSize,
-                child: Snake(
-                  rows: _snakeRows,
-                  columns: _snakeColumns,
-                  cellSize: _snakeCellSize,
-                ),
+                // child: Listener(
+                //   // This will report a PointerDownEvent whenever the user presses the screen.
+                //   // If you want updates as the user moves their finger across the screen,
+                //   // use onPointerMove instead.
+                //   onPointerDown: (PointerDownEvent event) {
+                //     // Global screen position.
+                //     // print("Global position x:${event.position.dx}, y:${event.position.dy}");
+                //     // Position relative to where this widget starts.
+                //     print("Relative position: x:${event.localPosition.dx}, y:${event.localPosition.dy}");
+                //     snake.
+
+
+                //   },
+                child: snake
+                // Snake(
+                //   rows: _snakeRows,
+                //   columns: _snakeColumns,
+                //   cellSize: _snakeCellSize,
+                // ),
+                // ),
               ),
             ),
           ),
-          SensorDisplay(label: "Accelerometer", value: accelerometer),
-          SensorDisplay(label: "UserAccelerometer", value: userAccelerometer),
-          SensorDisplay(label: "Gyroscope", value: gyroscope),
-          SensorDisplay(label: "Magnetometer", value: magnetometer),
+          // SensorDisplay(label: "Accelerometer", value: accelerometer),
+          // SensorDisplay(label: "UserAccelerometer", value: userAccelerometer),
+          // SensorDisplay(label: "Gyroscope", value: gyroscope),
+          // SensorDisplay(label: "Magnetometer", value: magnetometer),
+          Row(
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  textStyle: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold)),
+                onPressed: () {
+                  snake.state.changeinteraction("water")
+                },
+                child: Text("Water"),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.brown,
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  textStyle: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold)),
+                onPressed: () {
+                  snake.state.changeinteraction("solid")
+                },
+                
+                child: Text("Dirt"),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey,
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  textStyle: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold)),
+                onPressed: () {
+                  snake.state.changeinteraction("air")
+                },
+                child: Text("Air"),
+              ),
+            ],
+          ),
         ],
       ),
     );

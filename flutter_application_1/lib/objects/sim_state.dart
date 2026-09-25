@@ -38,8 +38,16 @@ class GameState {
     // iterations += 1;
   }
 
-  void changeinteraction(Tap newtype) {
-    tap = newtype;
+  void changeinteraction(String typename) {
+    if (typename == "water") {
+      tap = Tap.water;
+    }
+    if (typename == "solid") {
+      tap = Tap.solid;
+    }
+    if (typename == "air") {
+      tap = Tap.air;
+    }
   }
 
   void alterterrain(double x, double y) {

@@ -13,16 +13,30 @@ class Snake extends StatefulWidget {
     assert(10 <= rows);
     assert(10 <= columns);
     assert(5.0 <= cellSize);
+
+    state = GameState(rows, columns);
   }
 
   final int rows;
   final int columns;
   final double cellSize;
 
+  late GameState state;
+
+  // SnakeState snakestate = SnakeState(rows, columns, cellSize);
+  // late SnakeState snakestate;
+
   @override
   // ignore: no_logic_in_create_state
-  State<StatefulWidget> createState() => SnakeState(rows, columns, cellSize);
-}
+  State<StatefulWidget> createState() => SnakeState(rows, columns, state, cellSize);
+  // snakestate = SnakeState(rows, columns, cellSize);
+  
+  // @override
+  // void altertap(Tap tap) {
+  //   state(() {
+
+  //   });
+  }
 
 class SnakeBoardPainter extends CustomPainter {
   SnakeBoardPainter(this.state, this.cellSize);
@@ -69,8 +83,8 @@ class SnakeBoardPainter extends CustomPainter {
 }
 
 class SnakeState extends State<Snake> {
-  SnakeState(int rows, int columns, this.cellSize) {
-    state = GameState(rows, columns);
+  SnakeState(int rows, int columns, GameState state, this.cellSize) {
+    // state = GameState(rows, columns);
   }
 
   double cellSize;
@@ -116,6 +130,18 @@ class SnakeState extends State<Snake> {
 
   @override
   Widget build(BuildContext context) {
+    Listener(
+      // This will report a PointerDownEvent whenever the user presses the screen.
+      // If you want updates as the user moves their finger across the screen,
+      // use onPointerMove instead.
+      onPointerDown: (PointerDownEvent event) {
+        // Global screen position.
+        // print("Global position x:${event.position.dx}, y:${event.position.dy}");
+        // Position relative to where this widget starts.
+        // print("Relative position: x:${event.localPosition.dx}, y:${event.localPosition.dy}");
+        state!.alterterrain(event.localPosition.dx, event.localPosition.dy);
+      },
+    );
     return CustomPaint(painter: SnakeBoardPainter(state, cellSize));
   }
 }
