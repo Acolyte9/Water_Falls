@@ -106,7 +106,7 @@ Widget buildNavButton(BuildContext context, String label, Widget destination) {
           MaterialPageRoute(builder: (context) => destination),
         );
       },
-      child: Text(label),
+      child: Text(label), key: Key(label),
     ),
   );
 }
